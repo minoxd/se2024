@@ -3,7 +3,6 @@ package a1_22BI13047;
 import utils.AttrRef;
 import utils.DomainConstraint;
 import utils.NotPossibleException;
-import java.lang.Math;
 
 /**
  * @overview Student represents student
@@ -21,7 +20,7 @@ import java.lang.Math;
  */
 public class Student {
 	// attributes TODO
-	@DomainConstraint(type = "Integer", mutable = false, optional = false, min = 1, max = 10^9)
+	@DomainConstraint(type = "Integer", mutable = false, optional = false, min = MIN_ID, max = MAX_ID)
 	private double id;
 	
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = LENGTH_NAME)
@@ -35,7 +34,7 @@ public class Student {
 	
 	// constants
 	private static final double MIN_ID = 1;
-	private static final double MAX_ID = Math.pow(10, 9);
+	private static final double MAX_ID = 10e9;
 	private static final int LENGTH_NAME = 50;
 	private static final int LENGTH_PHONE_NUMBER = 10;
 	private static final int LENGTH_ADDRESS = 100;
@@ -75,8 +74,17 @@ public class Student {
 		this.phoneNumber = phoneNumber;
 		this.address = address;
 	}
-	
+
 	private boolean validateId(int id) {
-		return (id !=)
+		return false;
+	}
+	private boolean validateName(String name) {
+		return false;
+	}
+	private boolean validatePhoneNumber(String phoneNumber) {
+		return false;
+	}
+	private boolean validateAddress(String address) {
+		return false;
 	}
 }

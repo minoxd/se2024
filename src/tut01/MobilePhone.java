@@ -212,7 +212,7 @@ public class MobilePhone {
 	
 	@Override
 	public String toString() {
-		return "MobilePhone:<" + manName + 
+		return "MobilePhone: <" + manName + 
 				", " + model + 
 				", " + color + 
 				", " + year + 
