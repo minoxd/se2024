@@ -210,6 +210,7 @@ public class MobilePhone {
 				guaranteed == false);
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "MobilePhone: <" + manName + 
