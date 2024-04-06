@@ -49,11 +49,12 @@ public class MobilePhone {
 	/**
 	 * @effects <pre>
 	 * 	if manName, model, color, year are valid
-	 * 		initialise this as <manName, model, color, year>
+	 * 		initialize this as <manName, model, color, year>
 	 * 	else
-	 * 		initialise this as <> and inform error</pre>
+	 * 		initialize this as <> and inform error</pre>
 	 */
-	public MobilePhone(@AttrRef("manName") String manName,
+	public MobilePhone(
+			@AttrRef("manName") String manName,
 			@AttrRef("model") String model,
 			@AttrRef("color") char color,
 			@AttrRef("year") int year)
@@ -74,14 +75,16 @@ public class MobilePhone {
 			throw new NotPossibleException("MobilePhone.init: Invalid mobile phone year: " + year);
 		}
 		
-		// initialise this as <manName, model, color, year>
+		// initialize this as <manName, model, color, year>
 		this.manName = manName;
 		this.model = model;
 		this.color = color;
 		this.year = year;
 	}
 	
+	// mutators
 	/**
+	 * @modifies this.guaranteed
 	 * @effects <pre>
 	 * 	if guaranteed is valid
 	 * 		set this.guaranteed=guaranteed
@@ -100,6 +103,7 @@ public class MobilePhone {
 		}
 	}
 	
+	// observers
 	/**
 	 * @effects return <tt>manName</tt>
 	 */
@@ -145,6 +149,7 @@ public class MobilePhone {
 		return guaranteed;
 	}
 	
+	// validators
 	/**
 	 * @effects <pre>
 	 * 	if manName is valid
@@ -209,7 +214,6 @@ public class MobilePhone {
 		return (guaranteed == true ||
 				guaranteed == false);
 	}
-	
 	
 	@Override
 	public String toString() {
