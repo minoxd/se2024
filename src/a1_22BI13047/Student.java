@@ -55,7 +55,7 @@ public class Student implements Comparable<Student> {
 			@AttrRef("name") String name,
 			@AttrRef("phoneNumber") String phoneNumber,
 			@AttrRef("address") String address)
-			throws NotPossibleException {
+					throws NotPossibleException {
 		if (!validateId(id)) {
 			throw new NotPossibleException("Student.init: Invalid student id: " + id);
 		}
