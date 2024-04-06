@@ -41,7 +41,7 @@ public class Student implements Comparable<Student> {
 	private static final int LENGTH_PHONE_NUMBER = 10;
 	private static final int LENGTH_ADDRESS = 100;
 	
-	// constructor methods
+	// constructors
 	/**
 	 * @modifies this.id, this.name, this.phoneNumber, this.address
 	 * @effects <pre>
@@ -72,7 +72,6 @@ public class Student implements Comparable<Student> {
 			throw new NotPossibleException("Student.init: Invalid student address: " + address);
 		}
 		
-		// Initialize this as <id, name, phoneNumber, address>
 		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
@@ -240,11 +239,18 @@ public class Student implements Comparable<Student> {
 	
 	@Override
 	public boolean equals(Object o) {
-		if (!(o instanceof Student))
+		if (
+				(o instanceof UndergradStudent) ||
+				(o instanceof PostgradStudent)) {
 			return false;
+		}
+		
+		if (!(o instanceof Student)) {
+			return false;
+		}
 		
 		double yourId = ((Student) o).id;
-		return yourId == id;
+		return yourId == this.id;
 	}
 	
 	/**

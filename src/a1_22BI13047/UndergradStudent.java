@@ -58,4 +58,19 @@ public class UndergradStudent extends Student {
 				id <= MAX_ID);
 	}
 
+	@Override
+	public String toString() {
+		String tmp = super.toString();
+		return "Undergrad" + tmp;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof UndergradStudent)) {
+			return false;
+		}
+		
+		double yourId = ((Student) o).getId();
+		return yourId == this.getId();
+	}
 }
