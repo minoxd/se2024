@@ -4,13 +4,13 @@ import utils.AttrRef;
 import utils.NotPossibleException;
 
 /**
- * @overview Student represents student
+ * @overview UndergradStudent represents student who is not graduated
  * @attributes
  * 	id			Integer		double
  * 	name		String
  * 	phoneNumber	String
  * 	address		String
- * @object a typical Student object is s=<i, n, pN, a> where id(i), name(n), phoneNumber(pN), address(a)
+ * @object a typical UndergradStudent object is s=<i, n, pN, a> where id(i), name(n), phoneNumber(pN), address(a)
  * @abstract_properties
  * 	mutable(id)=false /\ optional(id)=false /\ min(id)=10e5 /\ max(id)=10^8 /\ 
  * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\ 

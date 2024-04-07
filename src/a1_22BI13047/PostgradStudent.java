@@ -7,19 +7,20 @@ import utils.NotPossibleException;
 import utils.OptType;
 
 /**
- * @overview Student represents student
+ * @overview PostgradStudent represents graduated student
  * @attributes
  * 	id			Integer		double
  * 	name		String
  * 	phoneNumber	String
  * 	address		String
  * 	gpa			Float		double
- * @object a typical Student object is s=<i, n, pN, a> where id(i), name(n), phoneNumber(pN), address(a)
+ * @object a typical Student object is s=<i, n, pN, a, g> where id(i), name(n), phoneNumber(pN), address(a), gpa(g)
  * @abstract_properties
  * 	mutable(id)=false /\ optional(id)=false /\ min(id)=10e8+1 /\ max(id)=10^9 /\ 
  * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\ 
  * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10 /\ 
  * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100 /\ 
+ * 	mutable(gpa)=true /\ optional(gpa)=false /\ min(gpa)=0.0 /\ max(gpa)=4.0 /\ 
  */
 public class PostgradStudent extends Student {
 	// attributes
@@ -36,7 +37,7 @@ public class PostgradStudent extends Student {
 	/**
 	 * @modifies this.id, this.name, this.phoneNumber, this.address, this.gpa
 	 * @effects <pre>
-	 * 	if id, name, phoneNumber, address are valid
+	 * 	if id, name, phoneNumber, address, gpa are valid
 	 * 		initialize this as <id, name, phoneNumber, address, gpa>
 	 * 	else
 	 * 		initialize this as <> and inform error</pre>
