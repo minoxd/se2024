@@ -14,7 +14,7 @@ import utils.OptType;
  * 	phoneNumber	String
  * 	address		String
  * 	gpa			Float		double
- * @object a typical Student object is s=<i, n, pN, a, g> where id(i), name(n), phoneNumber(pN), address(a), gpa(g)
+ * @object a typical PostgradStudent object is s=<i, n, pN, a, g> where id(i), name(n), phoneNumber(pN), address(a), gpa(g)
  * @abstract_properties
  * 	P_Student.id /\ min(id)=10e8+1 /\ 
  * 	P_Student.name /\ 
