@@ -13,10 +13,10 @@ import utils.NotPossibleException;
  * 	address		String
  * @object a typical UndergradStudent object is s=<i, n, pN, a> where id(i), name(n), phoneNumber(pN), address(a)
  * @abstract_properties
- * 	mutable(id)=false /\ optional(id)=false /\ min(id)=10e5 /\ max(id)=10^8 /\ 
- * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\ 
- * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10 /\ 
- * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100 /\ 
+ * 	P_Student.id /\ min(id)=10e5 /\ max(id)=10^8 /\ 
+ * 	P_Student.name /\ 
+ * 	P_Student.phoneNumber /\ 
+ * 	P_Student.address /\ 
  * @author minoxd 
  * 	https://github.com/minoxd/se2024
  */

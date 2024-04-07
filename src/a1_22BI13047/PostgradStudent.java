@@ -16,10 +16,10 @@ import utils.OptType;
  * 	gpa			Float		double
  * @object a typical Student object is s=<i, n, pN, a, g> where id(i), name(n), phoneNumber(pN), address(a), gpa(g)
  * @abstract_properties
- * 	mutable(id)=false /\ optional(id)=false /\ min(id)=10e8+1 /\ max(id)=10^9 /\ 
- * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\ 
- * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10 /\ 
- * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100 /\ 
+ * 	P_Student.id /\ min(id)=10e8+1 /\ 
+ * 	P_Student.name /\ 
+ * 	P_Student.phoneNumber /\ 
+ * 	P_Student.address /\ 
  * 	mutable(gpa)=true /\ optional(gpa)=false /\ min(gpa)=0.0 /\ max(gpa)=4.0 /\ 
  * @author minoxd 
  * 	https://github.com/minoxd/se2024
