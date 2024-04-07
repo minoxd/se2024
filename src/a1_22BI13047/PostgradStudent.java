@@ -21,6 +21,8 @@ import utils.OptType;
  * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10 /\ 
  * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100 /\ 
  * 	mutable(gpa)=true /\ optional(gpa)=false /\ min(gpa)=0.0 /\ max(gpa)=4.0 /\ 
+ * @author minoxd 
+ * 	https://github.com/minoxd/se2024
  */
 public class PostgradStudent extends Student {
 	// attributes
@@ -48,7 +50,7 @@ public class PostgradStudent extends Student {
 			@AttrRef("phoneNumber") String phoneNumber,
 			@AttrRef("address") String address,
 			@AttrRef("gpa") double gpa)
-				throws NotPossibleException {
+					throws NotPossibleException {
 		
 		super(id, name, phoneNumber, address);
 		

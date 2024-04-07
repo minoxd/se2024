@@ -18,7 +18,9 @@ import utils.OptType;
  * 	mutable(id)=false /\ optional(id)=false /\ min(id)=1 /\ max(id)=10^9 /\ 
  * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\ 
  * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10 /\ 
- * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100 /\ 
+ * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100 /\
+ * @author minoxd 
+ * 	https://github.com/minoxd/se2024
  */
 public class Student implements Comparable<Student> {
 	// attributes
