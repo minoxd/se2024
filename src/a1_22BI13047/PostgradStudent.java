@@ -104,7 +104,9 @@ public class PostgradStudent extends Student {
 	 * 	else
 	 * 		return false</pre>
 	 */
-	private boolean validateId(double id) {
+	@Override
+	@DomainConstraint(type = "Integer", mutable = false, optional = false, min = MIN_ID, max = MAX_ID)
+	protected boolean validateId(double id) {
 		return (id >= MIN_ID &&
 				id <= MAX_ID);
 	}

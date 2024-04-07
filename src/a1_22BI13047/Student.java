@@ -186,7 +186,7 @@ public class Student implements Comparable<Student> {
 	 * 	else
 	 * 		return false</pre>
 	 */
-	private boolean validateId(double id) {
+	protected boolean validateId(double id) {
 		return (id >= MIN_ID &&
 				id <= MAX_ID);
 	}
