@@ -55,11 +55,11 @@ public class PostgradStudent extends Student {
 		super(id, name, phoneNumber, address);
 		
 		if (!validateId(id)) {
-			throw new NotPossibleException("Student.init: Invalid student id: " + id);
+			throw new NotPossibleException("PostgradStudent.init: Invalid student id: " + id);
 		}
 		
 		if (!validateGpa(gpa)) {
-			throw new NotPossibleException("Student.init: Invalid student gpa: " + gpa);
+			throw new NotPossibleException("PostgradStudent.init: Invalid student gpa: " + gpa);
 		}
 		
 		this.gpa = gpa;

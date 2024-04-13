@@ -22,8 +22,8 @@ import utils.NotPossibleException;
  */
 public class UndergradStudent extends Student {
 	// constants
-	private static final double MIN_ID = 10e5;
-	private static final double MAX_ID = 10e8;
+	private static final int MIN_ID = (int) 1e5;
+	private static final int MAX_ID = (int) 1e8;
 	
 	// constructors
 	/**
@@ -44,7 +44,7 @@ public class UndergradStudent extends Student {
 		super(id, name, phoneNumber, address);
 		
 		if (!validateId(id)) {
-			throw new NotPossibleException("Student.init: Invalid student id: " + id);
+			throw new NotPossibleException("UndergradStudent.init: Invalid student id: " + id);
 		}
 	}
 	
