@@ -20,7 +20,8 @@ import utils.OptType;
  * 	mutable(model)=false /\ optional(model)=false /\ length(model)=20 /\ 
  * 	mutable(color)=false /\ optional(color)=false /\ 
  * 	mutable(year)=false /\ optional(year)=false /\ min(year)=1973 /\ max(year)=2024 /\ 
- * 	mutable(guaranteed)=true /\ optional(guaranteed)=true /\  
+ * 	mutable(guaranteed)=true /\ optional(guaranteed)=true /\
+ * 	@author minoxd  
  */
 public class MobilePhone {
 	//attributes

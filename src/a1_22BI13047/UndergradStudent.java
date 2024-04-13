@@ -7,13 +7,13 @@ import utils.NotPossibleException;
 /**
  * @overview UndergradStudent represents student who is not graduated
  * @attributes
- * 	id			Integer		double
+ * 	id			Integer		int
  * 	name		String
  * 	phoneNumber	String
  * 	address		String
- * @object a typical UndergradStudent object is s=<i, n, pN, a> where id(i), name(n), phoneNumber(pN), address(a)
+ * @object a typical UndergradStudent object is us=<i, n, pN, a> where id(i), name(n), phoneNumber(pN), address(a)
  * @abstract_properties
- * 	P_Student.id /\ min(id)=10e5 /\ max(id)=10^8 /\ 
+ * 	P_Student.id /\ min(id)=1e5 /\ max(id)=1e8 /\ 
  * 	P_Student.name /\ 
  * 	P_Student.phoneNumber /\ 
  * 	P_Student.address /\ 
@@ -35,7 +35,7 @@ public class UndergradStudent extends Student {
 	 * 		initialize this as <> and inform error</pre>
 	 */
 	public UndergradStudent(
-			@AttrRef("id") double id, 
+			@AttrRef("id") int id, 
 			@AttrRef("name") String name, 
 			@AttrRef("phoneNumber") String phoneNumber, 
 			@AttrRef("address") String address) 
@@ -58,7 +58,7 @@ public class UndergradStudent extends Student {
 	 */
 	@Override
 	@DomainConstraint(type = "Integer", mutable = false, optional = false, min = MIN_ID, max = MAX_ID)
-	protected boolean validateId(double id) {
+	protected boolean validateId(int id) {
 		return (id >= MIN_ID &&
 				id <= MAX_ID);
 	}
@@ -75,7 +75,7 @@ public class UndergradStudent extends Student {
 			return false;
 		}
 		
-		double yourId = ((Student) o).getId();
+		int yourId = ((Student) o).getId();
 		return yourId == this.getId();
 	}
 }

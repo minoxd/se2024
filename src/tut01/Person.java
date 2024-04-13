@@ -14,12 +14,12 @@ import utils.OptType;
  * 	phone	MobilePhone
  * @object a typical Person object is p=<i, n>, where id(i), name(n)
  * @abstract_properties
- * 	mutable(id)=false /\ optional(id)=false /\ min(id)=1 /\
- * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\
+ * 	mutable(id)=false /\ optional(id)=false /\ min(id)=1 /\ 
+ * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\ 
  * 	mutable(phone)=true /\ optional(phone)=true /\ 
  * @author minoxd
  */
-public class Person {
+public class Person implements Comparable<Person>{
 	// attributes
 	@DomainConstraint(type = "Integer", mutable = false, optional = false, min = MIN_ID)
 	private int id;
@@ -38,9 +38,9 @@ public class Person {
 	/**
 	 * @effects <pre>
 	 * 	if id, name are valid
-	 * 		initialise this as <id, name>
+	 * 		initialize this as <id, name>
 	 * 	else
-	 * 		initialise this as <> and inform error</pre>
+	 * 		initialize this as <> and inform error</pre>
 	 */
 	public Person(@AttrRef("id") int id, @AttrRef("name") String name)
 			throws NotPossibleException {
@@ -52,7 +52,7 @@ public class Person {
 			throw new NotPossibleException("Person.init: Invalid person name: " + name);
 		}
 		
-		// initialise this as <id, name>
+		// Initialize this as <id, name>
 		this.id = id;
 		this.name = name;
 	}
@@ -148,10 +148,15 @@ public class Person {
 	
 	@Override
 	public String toString() {
+		if (this.phone != null) {
+			return "Person: <" + id + 
+					", " + name + 
+					", " + phone.toString() + 
+					">";
+		}
 		return "Person: <" + id + 
 				", " + name + 
-				", " + phone.toString() + 
-				">";
+				", null>";
 	}
 	
 	/**
@@ -227,5 +232,17 @@ public class Person {
 	 */
 	public boolean repOK() {
 		return validateId(id) && validateName(name);
+	}
+	
+	@Override
+	public int compareTo(Person p) {
+		if (this.id == p.getId()) {
+			return this.name.compareTo(p.getName());
+		}
+		if (this.id < p.getId()) {
+			return -1;
+		}	else {
+			return 1;
+		}
 	}
 }

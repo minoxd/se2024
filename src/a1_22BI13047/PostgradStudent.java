@@ -9,14 +9,14 @@ import utils.OptType;
 /**
  * @overview PostgradStudent represents graduated student
  * @attributes
- * 	id			Integer		double
+ * 	id			Integer		int
  * 	name		String
  * 	phoneNumber	String
  * 	address		String
  * 	gpa			Float		double
- * @object a typical PostgradStudent object is s=<i, n, pN, a, g> where id(i), name(n), phoneNumber(pN), address(a), gpa(g)
+ * @object a typical PostgradStudent object is ps=<i, n, pN, a, g> where id(i), name(n), phoneNumber(pN), address(a), gpa(g)
  * @abstract_properties
- * 	P_Student.id /\ min(id)=10e8+1 /\ 
+ * 	P_Student.id /\ min(id)=1e8+1 /\ 
  * 	P_Student.name /\ 
  * 	P_Student.phoneNumber /\ 
  * 	P_Student.address /\ 
@@ -30,8 +30,8 @@ public class PostgradStudent extends Student {
 	private double gpa;
 	
 	// constants
-	private static final double MIN_ID = 10e8+1;
-	private static final double MAX_ID = 10e9;
+	private static final int MIN_ID = (int) 1e8+1;
+	private static final int MAX_ID = (int) 1e9;
 	private static final double MIN_GPA = 0.0;
 	private static final double MAX_GPA = 4.0;
 	
@@ -45,7 +45,7 @@ public class PostgradStudent extends Student {
 	 * 		initialize this as <> and inform error</pre>
 	 */
 	public PostgradStudent(
-			@AttrRef("id") double id,
+			@AttrRef("id") int id,
 			@AttrRef("name") String name,
 			@AttrRef("phoneNumber") String phoneNumber,
 			@AttrRef("address") String address,
@@ -106,7 +106,7 @@ public class PostgradStudent extends Student {
 	 */
 	@Override
 	@DomainConstraint(type = "Integer", mutable = false, optional = false, min = MIN_ID, max = MAX_ID)
-	protected boolean validateId(double id) {
+	protected boolean validateId(int id) {
 		return (id >= MIN_ID &&
 				id <= MAX_ID);
 	}
@@ -138,7 +138,7 @@ public class PostgradStudent extends Student {
 			return false;
 		}
 		
-		double yourId = ((Student) o).getId();
+		int yourId = ((Student) o).getId();
 		return yourId == this.getId();
 	}
 	

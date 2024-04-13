@@ -9,13 +9,13 @@ import utils.OptType;
 /**
  * @overview Student represents student
  * @attributes
- * 	id			Integer		double
+ * 	id			Integer		int
  * 	name		String
  * 	phoneNumber	String
  * 	address		String
  * @object a typical Student object is s=<i, n, pN, a> where id(i), name(n), phoneNumber(pN), address(a)
  * @abstract_properties
- * 	mutable(id)=false /\ optional(id)=false /\ min(id)=1 /\ max(id)=10^9 /\ 
+ * 	mutable(id)=false /\ optional(id)=false /\ min(id)=1 /\ max(id)=1e9 /\ 
  * 	mutable(name)=true /\ optional(name)=false /\ length(name)=50 /\ 
  * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10 /\ 
  * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100 /\
@@ -25,7 +25,7 @@ import utils.OptType;
 public class Student implements Comparable<Student> {
 	// attributes
 	@DomainConstraint(type = "Integer", mutable = false, optional = false, min = MIN_ID, max = MAX_ID)
-	private double id;
+	private int id;
 	
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = LENGTH_NAME)
 	private String name;
@@ -37,8 +37,8 @@ public class Student implements Comparable<Student> {
 	private String address;
 	
 	// constants
-	private static final double MIN_ID = 1;
-	private static final double MAX_ID = 10e9;
+	private static final int MIN_ID = 1;
+	private static final int MAX_ID = (int) 1e9;
 	private static final int LENGTH_NAME = 50;
 	private static final int LENGTH_PHONE_NUMBER = 10;
 	private static final int LENGTH_ADDRESS = 100;
@@ -53,7 +53,7 @@ public class Student implements Comparable<Student> {
 	 * 		initialize this as <> and inform error</pre>
 	 */
 	public Student(
-			@AttrRef("id") double id,
+			@AttrRef("id") int id,
 			@AttrRef("name") String name,
 			@AttrRef("phoneNumber") String phoneNumber,
 			@AttrRef("address") String address)
@@ -147,7 +147,7 @@ public class Student implements Comparable<Student> {
 	 */
 	@DOpt(type=OptType.Observer)
 	@AttrRef("id")
-	public double getId() {
+	public int getId() {
 		return this.id;
 	}
 	
@@ -186,7 +186,7 @@ public class Student implements Comparable<Student> {
 	 * 	else
 	 * 		return false</pre>
 	 */
-	protected boolean validateId(double id) {
+	protected boolean validateId(int id) {
 		return (id >= MIN_ID &&
 				id <= MAX_ID);
 	}
@@ -251,7 +251,7 @@ public class Student implements Comparable<Student> {
 			return false;
 		}
 		
-		double yourId = ((Student) o).id;
+		int yourId = ((Student) o).id;
 		return yourId == this.id;
 	}
 	
@@ -275,7 +275,7 @@ public class Student implements Comparable<Student> {
 			return this.name.compareTo(o.name);
 		} else {
 			// knows that 2 ids cannot be equal
-			return Double.compare(this.id, o.id);
+			return Integer.compare(this.id, o.id);
 		}
 	}
 }
