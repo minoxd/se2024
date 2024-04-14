@@ -1,23 +1,31 @@
 package a1_22BI13047;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class StudentMan {
 	public static void main(String[] args) {
-		Student[] students = new Student[5];
-		students[0] = new UndergradStudent(100000, "At2", "0123456789", "Hanoi");
-		students[1] = new Student(999, "At3", "0123456789", "Hanoi");
-		students[2] = new PostgradStudent(1000000000, "At1", "0123456789", "Hanoi", 3.8);
-		students[3] = new Student((int) 1e5, "At4", "0123456789", "Hanoi");
-		students[4] = new Student(999, "At5", "0123456789", "Hanoi");
-		Arrays.sort(students);
-		for (Student student : students) {
-			System.out.println(student.toString());
-		}
-		// using equals after sort
-		System.out.println(students[3].equals(students[4]));
-		System.out.println(students[1].equals(students[4]));
-		students[0].setGpa(1.2);
-		System.out.println(students[0].getGpa());
+		UndergradStudent s1 = new UndergradStudent(100000, "At2", "0123456789", "Hanoi");
+		Student s2 = new Student(999, "At3", "0123456789", "Hanoi");
+		PostgradStudent s3 = new PostgradStudent(1000000000, "At1", "0123456789", "Hanoi", 3.8f);
+		Student s4 = new Student((int) 1e5, "At4", "0123456789", "Hanoi");
+		Student s5 = new Student(999, "At5", "0123456789", "Hanoi");
+		
+		System.out.println(s3);
+		s3.setGpa(2.0f);
+		System.out.println(s3.getGpa());
+		
+		List<Student> students= new ArrayList<Student>();
+		students.add(s1);
+		students.add(s2);
+		students.add(s3);
+		students.add(s4);
+		students.add(s5);
+		System.out.println(students);
+		
+		Collections.sort(students);
+		System.out.println(students);
 	}
 }

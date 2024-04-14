@@ -13,7 +13,7 @@ import utils.OptType;
  * 	name		String
  * 	phoneNumber	String
  * 	address		String
- * 	gpa			Float		double
+ * 	gpa			Float		float
  * @object a typical PostgradStudent object is ps=<i, n, pN, a, g> where id(i), name(n), phoneNumber(pN), address(a), gpa(g)
  * @abstract_properties
  * 	P_Student.id /\ min(id)=1e8+1 /\ 
@@ -27,13 +27,13 @@ import utils.OptType;
 public class PostgradStudent extends Student {
 	// attributes
 	@DomainConstraint(type = "Float", mutable = true, optional = false, min = MIN_GPA, max = MAX_GPA)
-	private double gpa;
+	private float gpa;
 	
 	// constants
 	private static final int MIN_ID = (int) 1e8+1;
 	private static final int MAX_ID = (int) 1e9;
-	private static final double MIN_GPA = 0.0;
-	private static final double MAX_GPA = 4.0;
+	private static final float MIN_GPA = (float) 0.0;
+	private static final float MAX_GPA = (float) 4.0;
 	
 	// constructors
 	/**
@@ -49,7 +49,7 @@ public class PostgradStudent extends Student {
 			@AttrRef("name") String name,
 			@AttrRef("phoneNumber") String phoneNumber,
 			@AttrRef("address") String address,
-			@AttrRef("gpa") double gpa)
+			@AttrRef("gpa") float gpa)
 					throws NotPossibleException {
 		
 		super(id, name, phoneNumber, address);
@@ -77,7 +77,7 @@ public class PostgradStudent extends Student {
 	 */
 	@DOpt(type=OptType.Mutator)
 	@AttrRef("gpa")
-	public boolean setGpa(double gpa) {
+	public boolean setGpa(float gpa) {
 		if (validateGpa(gpa)) {
 			this.gpa = gpa;
 			return true;
@@ -92,7 +92,7 @@ public class PostgradStudent extends Student {
 	 */
 	@DOpt(type=OptType.Observer)
 	@AttrRef("gpa")
-	public double getGpa() {
+	public float getGpa() {
 		return this.gpa;
 	}
 
@@ -118,7 +118,7 @@ public class PostgradStudent extends Student {
 	 * 	else
 	 * 		return false</pre>
 	 */
-	private boolean validateGpa(double gpa) {
+	private boolean validateGpa(float gpa) {
 		return (gpa >= MIN_GPA &&
 				gpa <= MAX_GPA);
 	}

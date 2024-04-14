@@ -141,21 +141,6 @@ public class Student implements Comparable<Student> {
 		}
 	}
 	
-	/**
-	 * @modifies this.gpa
-	 * @effects <pre>
-	 * 	if gpa is valid
-	 * 		set this.gpa=gpa
-	 * 		return true
-	 * 	else
-	 * 		return false</pre>
-	 */
-	@DOpt(type=OptType.Mutator)
-	@AttrRef("gpa")
-	public boolean setGpa(double gpa) {
-		return false;
-	}
-	
 	// observers
 	/**
 	 * @effects return <tt>id</tt>
@@ -191,15 +176,6 @@ public class Student implements Comparable<Student> {
 	@AttrRef("address")
 	public String getAddress() {
 		return this.address;
-	}
-	
-	/**
-	 * @effects return <tt>gpa</tt>
-	 */
-	@DOpt(type=OptType.Observer)
-	@AttrRef("gpa")
-	public double getGpa() {
-		return 0.0;
 	}
 	
 	// validators
